@@ -5,5 +5,21 @@
 	</head>
 	<body>
 		<h1> Principal </h1>
+		<table border="2">
+			<tr>
+				<td>Dia de la semana</td>
+				<td>Hora</td>
+				<td>Ciclo</td>
+				<td>Modulo</td>
+			</tr>
+			{% for horario in cmhs %}
+			<tr>
+				<td>{{ horario.dia_semana }}</td>
+				<td>{{ horario.hora }}</td>
+				<td>{{horario.cic_mod_hor__ciclos__nombre}}</td>
+				<td><a href= "{% url 'faltas' horario.cic_mod_hor__modulos horario.cic_mod_hor__ciclos %}">{{ horario.cic_mod_hor__modulos__nombre }}</a></td>
+			</tr>
+			{% endfor %}
+		</table>
 	</body>
 </html>
